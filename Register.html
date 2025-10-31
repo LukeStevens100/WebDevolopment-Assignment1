@@ -2,28 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>GameZone - Registration</title>
+    <title>Register-GameZone</title>
+    <link rel="icon" type="image/x-icon" href="GameHub-LogoV1.png">
     <style>
 
         body{
             font-family: Arial, sans-serif;
             background: #8d8bc4;
-            color: blue;
-            display: flex;
-            flex-direction: row;
-            align-items: left;
-            justify-content: center;
-            height: 120vh;
+            color: black;
+            margin: 0;
+            align-content:center;
         }
         form {
             background:#edeae8;
-            padding:25px;
+            padding:50px;
             max-width: 400px;
         }
         header{
-            text-allign: center;
+            background-color: #3b5998;
+            text-align: center;
             color: black;
             font-size: 60px;
+            height: 20%; 
+            width: 100vw;
+        }
+        main{
+            align-items:center;
+            justify-content:center;
+            padding: 40px 50px;
+            height:calc(100vh - 20vh);
         }
     </style>
 </head>
@@ -31,6 +38,14 @@
 <header>GameZone</header>
 <br>
 <h2>Registration Page</h2>
+<main>
+<form method = "post" action = "register">
+    <label>Username: <input type = "text" name = "username" required maxlength = "20"></label><br/>
+    <label>Password: <input type = "password" name = "password" required></label><br/>
+    <label>Repeat Password<input type = "password" name = "repeatpassword" required></label><br/>
+    <button type = "submit">Register</button>
+</form>
+</main>
 </body>
 
 

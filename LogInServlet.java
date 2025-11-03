@@ -7,7 +7,7 @@ import java.sql.*;
 
 
 public class LogInServlet extends HTTPServlet{
-
+    @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
         throws IOException, ServletException{
 
@@ -21,27 +21,27 @@ public class LogInServlet extends HTTPServlet{
             String pwdHash = PasswordUtil.sha256Hex(password);
 
         try (Connection conn = DBUtil.getConnection()) {
-            String sql = "SELECT credits, password_hash FROM players WHERE gamer_tag = ?";
+            String sql = "SELECT credits, password_hash FROM players WHERE username = ?";
             try (PreparedStatement ps = conn.prepareStatement(sql)) {
-                ps.setString(1, gamerTag);
+                ps.setString(1, username);
                 try (ResultSet rs = ps.executeQuery()) {
                     if (rs.next()) {
                         String storedHash = rs.getString("password_hash");
-                        int credits = rs.getInt("credits");
+                        int credits = rs.getInt("token");
                         if (storedHash.equals(pwdHash)) {
                             HttpSession session = req.getSession(true);
-                            session.setAttribute("gamerTag", gamerTag);
+                            session.setAttribute("username", username);
                             session.setAttribute("credits", credits);
                             resp.sendRedirect("dashboard");
                             return;
                         } else {
                             out.println("<h3>Invalid password.</h3>");
-                            out.println("<a href='login.html'>Back to Login</a>");
+                            out.println("<a href='Login.html'>Back to Login</a>");
                             return;
                         }
                     } else {
-                        out.println("<h3>Gamer tag not found.</h3>");
-                        out.println("<a href='register.html'>Register</a>");
+                        out.println("<h3>Username not found.</h3>");
+                        out.println("<a href='Register.html'>Register</a>");
                         return;
                     }
                 }

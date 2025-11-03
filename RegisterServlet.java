@@ -8,6 +8,8 @@ import java.sql.*;
 public class RegisterServlet extends HttpServlet {
     private static final int STARTING_CREDITS = 500;
 
+
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");
         String password = req.getParameter("password");

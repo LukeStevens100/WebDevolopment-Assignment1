@@ -8,7 +8,7 @@
   <display-name>GameZone</display-name>
 
   <welcome-file-list>
-    <welcome-file>FrontPage.html</welcome-file>
+    <welcome-file>LogIn.html</welcome-file>
   </welcome-file-list>
 
 

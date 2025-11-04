@@ -53,5 +53,12 @@ body{
     <br>
     <p><a href="Register.html">Register</a>
     <a href="Login.html">LogIn</a></p>
+    <p>Hello <strong>${username}</strong>!</p>
+    <p>Your current credits: <strong>${credits}</strong></p>
+    <form method="post" action="dashboard">
+    Bet amount: <input type="number" name="bet" min="1" required><br><br>
+    Guess a number (1–10): <input type="number" name="guess" min="1" max="10" required><br><br>
+    <button type="submit">Play</button>
+    </form>
 </body>
 </html>

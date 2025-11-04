@@ -47,14 +47,4 @@
     <servlet-name>TokenServlet</servlet-name>
     <url-pattern>/Token</url-pattern>
   </servlet-mapping>
-
-  <servlet>
-    <servlet-name>LogoutServlet</servlet-name>
-    <servlet-class>com.example.gaming.LogoutServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>LogoutServlet</servlet-name>
-    <url-pattern>/logout</url-pattern>
-  </servlet-mapping>
-
 </web-app>
